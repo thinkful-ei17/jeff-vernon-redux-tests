@@ -12,6 +12,5 @@ describe('<GuessList/>', () => {
       let arr = [1,2,3];
       const wrapper = mount(<GuessList guesses={arr}/>);
       expect(wrapper.prop('guesses')).toEqual(arr);
-
     });
 })
