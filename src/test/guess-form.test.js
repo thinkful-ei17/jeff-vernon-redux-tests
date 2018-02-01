@@ -1,23 +1,24 @@
 import React from 'react';
-import GuessForm from '../components/guess-form';
+import { GuessForm } from '../components/guess-form';
+import { MAKE_GUESS } from '../actions';
 import { shallow, mount } from 'enzyme';
 import '../setupTest';
 
 describe('<GuessForm />', () => {
     it('Should smoke test the GuessForm component', () => {
-        // shallow( <GuessForm / > )
+        shallow( <GuessForm / > )
     })
 })
 
-// it('Shuould test callback on submit in GuessForm', () => {
-//   const callback = jest.fn((value) => {console.log(value)} );
-//   const wrapper = mount(<GuessForm onMakeGuess={(e) => callback(e)}/>);
-//   // console.log(wrapper.find('.text').instance());
-//   wrapper.find('.text').instance().value = '56';
-//
-//   wrapper.simulate('submit');
-//   expect(callback).toHaveBeenCalled();
-//   expect(callback.mock.calls[0][0]).toEqual('56');
-//   //callback was sent a value of 56
-//
-// });
+it('Should test callback on submit in GuessForm', () => {
+  const dispatch = jest.fn((value) => {console.log(value)} );
+  const callback = jest.fn((value) => {console.log(value)} );
+  const wrapper = mount(<GuessForm dispatch={(e) => dispatch(e)}/>);
+
+  wrapper.find('.text').instance().value = '56';
+
+  wrapper.simulate('submit');
+  expect(dispatch).toHaveBeenCalled();
+  expect(dispatch.mock.calls[0][0]).toEqual({type: MAKE_GUESS, 'guess': '56'});
+
+});

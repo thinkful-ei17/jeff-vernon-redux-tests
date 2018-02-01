@@ -5,7 +5,7 @@ import '../setupTest';
 
 describe('<StatusSection/>', () => {
     it('Should smoke test the StatusSection component', () => {
-        // shallow( <StatusSection guesses={[]}/ > )
+        // shallow( <StatusSection guesses={[]}/ > ) 
     })
 
     // it('Should show given prop values when rendered', () => {

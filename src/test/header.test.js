@@ -6,6 +6,6 @@ import '../setupTest';
 
 describe('<header/>', () => {
     it('Should smoke test the header component', () => {
-        // shallow( <Header / > )
+        shallow( <Header / > )
     })
 })
